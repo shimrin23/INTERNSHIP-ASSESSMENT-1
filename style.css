@@ -814,12 +814,12 @@ a {
 /* Screen overlay positioned absolute exactly inside transparent TV screen */
 .tv-screen-glass-overlay {
   position: absolute;
-  top: 14.8%;
-  left: 14.8%;
-  width: 70.4%;
-  height: 67%;
+  top: 15.6%;
+  left: 16%;
+  width: 68%;
+  height: 64%;
   background-color: #0E1210; /* screen tint */
-  border-radius: 6.8cqw;
+  border-radius: 8.5cqw;
   padding: clamp(1rem, 5cqw, 3.5rem) clamp(1rem, 7cqw, 5rem) clamp(0.5rem, 3cqw, 2rem) clamp(1rem, 7cqw, 5rem);
   display: flex;
   flex-direction: column;
