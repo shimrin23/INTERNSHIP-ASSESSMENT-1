@@ -1357,7 +1357,9 @@ a {
    ========================================================================== */
 @media (max-width: 1024px) {
   .tvk-big-text {
-    font-size: 11rem;
+    font-size: clamp(6.5rem, 18vw, 11rem);
+    -webkit-text-stroke: 4px var(--ink-black);
+    text-shadow: 8px 8px 0px var(--ink-black);
   }
   .hero-mascot {
     height: 180px;
@@ -1373,6 +1375,18 @@ a {
 @media (max-width: 900px) {
   .hamburger {
     display: block;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
   }
 
   .nav-menu {
@@ -1477,7 +1491,9 @@ a {
   }
 
   .tvk-big-text {
-    font-size: 7.5rem;
+    font-size: clamp(4rem, 20vw, 7.5rem);
+    -webkit-text-stroke: 3px var(--ink-black);
+    text-shadow: 6px 6px 0px var(--ink-black);
   }
 
   .hero-mascot {
