@@ -1,0 +1,1547 @@
+/* ==========================================================================
+   DESIGN SYSTEM & CUSTOM PROPERTIES
+   ========================================================================== */
+:root {
+  /* Colors */
+  --primary-orange: #E17036;
+  --accent-light-orange: #EDA986;
+  --bg-light-orange: #F3C6AF;
+  --bg-dark-orange: #B45A2B;
+  --ink-black: #1A1D20;
+  --off-white: #F4F4F4;
+  --pure-white: #FFFFFF;
+  --green-accent: #2ECC71;
+  --grey-text: #4F5E6B;
+  --blue-accent: #3498DB;
+
+  /* Comic Styling Variables */
+  --comic-border: 4px solid var(--ink-black);
+  --comic-border-thin: 2px solid var(--ink-black);
+  --comic-shadow: 6px 6px 0px var(--ink-black);
+  --comic-shadow-large: 10px 10px 0px var(--ink-black);
+  --comic-shadow-hover: 9px 9px 0px var(--ink-black);
+
+  /* Fonts */
+  --font-comic: 'Luckiest Guy', cursive;
+  --font-body: 'Outfit', sans-serif;
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--pure-white);
+  color: var(--ink-black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-comic);
+  letter-spacing: 1.5px;
+}
+
+h2.section-title {
+  font-size: 3rem;
+  text-align: center;
+  color: var(--pure-white);
+  -webkit-text-stroke: 2px var(--ink-black);
+  text-shadow: 4px 4px 0px var(--ink-black);
+  margin-bottom: 0.5rem;
+}
+
+.section-title-alt {
+  font-family: 'Bazinga!', var(--font-comic), sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 73px;
+  text-align: center;
+  color: #E17036;
+  -webkit-text-stroke: 2px #000000;
+  text-shadow: 4px 4px 0px #000000;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle-alt {
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 150%;
+  text-align: center;
+  color: #000000;
+  max-width: 1600px;
+  width: 90%;
+  margin: 0 auto 3.5rem auto;
+  align-self: stretch;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+p.section-subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--ink-black);
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINERS & GRID GUIDES
+   ========================================================================== */
+.section-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* 12-Column Designer grid guides */
+.stripe-bg {
+  position: relative;
+  background-color: var(--bg-light-orange);
+  border-bottom: var(--comic-border);
+}
+
+.stripe-bg::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(225, 112, 54, 0.09) 0px,
+    rgba(225, 112, 54, 0.09) 4.16vw,
+    transparent 4.16vw,
+    transparent 8.33vw
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dark theme stripes (Roadmap) */
+.stripe-bg-dark {
+  position: relative;
+  background-color: #0E161C;
+  border-bottom: var(--comic-border);
+}
+
+.stripe-bg-dark::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.25) 0px,
+    rgba(0, 0, 0, 0.25) 4.16vw,
+    transparent 4.16vw,
+    transparent 8.33vw
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--font-comic);
+  padding: 0.8rem 2rem;
+  font-size: 1.15rem;
+  border-radius: 50px;
+  border: var(--comic-border);
+  box-shadow: 4px 4px 0px var(--ink-black);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--ink-black);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--ink-black);
+}
+
+.btn-join {
+  background-color: var(--pure-white);
+  color: var(--ink-black);
+}
+
+.btn-join:hover {
+  background-color: var(--off-white);
+}
+
+.btn-buy-now {
+  background-color: var(--pure-white);
+  color: var(--ink-black);
+  font-size: 1.5rem;
+  padding: 1.2rem 3rem;
+}
+
+.btn-buy-now:hover {
+  background-color: var(--off-white);
+  transform: scale(1.05) translate(-3px, -3px);
+  box-shadow: 8px 8px 0px var(--ink-black);
+}
+
+
+/* Comic Card Template */
+.comic-card {
+  background-color: var(--pure-white);
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.comic-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--comic-shadow-hover);
+}
+
+/* ==========================================================================
+   HEADER SECTION
+   ========================================================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--primary-orange);
+  border-bottom: var(--comic-border);
+  z-index: 1000;
+  height: 80px;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: var(--font-comic);
+  font-size: 2rem;
+  color: var(--pure-white);
+}
+
+/* Desktop Navigation */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-family: var(--font-comic);
+  font-size: 1rem;
+  color: var(--pure-white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.15s ease;
+  -webkit-text-stroke: 0.5px var(--ink-black);
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: var(--ink-black);
+  color: var(--pure-white);
+  -webkit-text-stroke: 0px;
+  transform: rotate(-3deg);
+}
+
+/* Mobile Hamburger Menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  z-index: 1001;
+}
+
+.hamburger .bar {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--ink-black);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger .bar:nth-child(2) {
+  margin: 6px 0;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, #EDA986 0%, #E78D5E 37%, #E17036 63%, #B45A2B 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  overflow: hidden;
+  border-bottom: var(--comic-border);
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(244, 244, 244, 0.25) 0deg 12deg,
+    transparent 12deg 24deg
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  animation: rotateBurst 140s linear infinite;
+  z-index: 1;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.12) 15%, transparent 16%);
+  background-size: 18px 18px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes rotateBurst {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 1000px;
+  padding: 0 1.5rem;
+}
+
+.hero-pretitle {
+  font-family: var(--font-comic);
+  font-size: 2.2rem;
+  color: var(--ink-black);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 0px var(--pure-white);
+  letter-spacing: 2px;
+}
+
+.hero-display-wrapper {
+  margin: 1.5rem auto 2.5rem auto;
+}
+
+.tvk-big-text {
+  font-family: var(--font-comic);
+  font-size: 15rem;
+  line-height: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--pure-white);
+  -webkit-text-stroke: 6px var(--ink-black);
+  text-shadow: 12px 12px 0px var(--ink-black);
+  user-select: none;
+}
+
+.tvk-big-text .letter {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tvk-big-text .letter:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.mascot-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-mascot {
+  position: absolute;
+  height: 250px;
+  width: auto;
+  bottom: -30px;
+  z-index: 2;
+  object-fit: contain;
+  animation: floatMascot 4s ease-in-out infinite;
+  /* Add shadow filter for 3D profile mascot in V */
+  filter: drop-shadow(4px 4px 0px var(--ink-black));
+}
+
+@keyframes floatMascot {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.tvk-big-text .letter-v {
+  position: relative;
+  z-index: 1;
+  transform: rotate(-3deg);
+}
+
+.hero-subtitle {
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 150%;
+  text-align: center;
+  color: #000000;
+  width: 100%;
+  max-width: 944px;
+  margin: 0 auto 3rem auto;
+  align-self: stretch;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* ==========================================================================
+   DECORATION GRAPHICS (Balloons, Mascot positions)
+   ========================================================================== */
+.balloon-decor-img {
+  position: absolute;
+  width: 130px;
+  height: auto;
+  z-index: 5;
+  animation: floatBalloon 7s ease-in-out infinite alternate;
+}
+
+.balloon-left { top: 20%; left: 3%; animation-delay: 0s; }
+.balloon-right { bottom: 10%; right: 3%; animation-delay: 1.2s; }
+
+.balloon-asset-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(4px 4px 0px var(--ink-black));
+}
+
+@keyframes floatBalloon {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-25px) rotate(3deg); }
+}
+
+.floating-mascot-decor {
+  position: absolute;
+  width: 90px;
+  height: auto;
+  z-index: 4;
+  animation: floatMini 5s ease-in-out infinite alternate;
+}
+
+.floating-mascot-png {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 0px var(--ink-black));
+}
+
+.mascot-about-bottom { bottom: 8%; left: 25%; }
+.mascot-how-right { top: 25%; right: 2%; width: 240px !important; }
+.mascot-tok-right { top: 22%; right: 3%; width: 140px !important; }
+.mascot-road-left { top: 8%; left: 5%; width: 110px; }
+.mascot-comm-right { top: 22%; right: 4%; }
+
+@keyframes floatMini {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-15px) rotate(6deg); }
+}
+
+/* ==========================================================================
+   ABOUT SECTION
+   ========================================================================== */
+.about-flex-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 6;
+}
+
+.about-text-content {
+  flex: 1.2;
+}
+
+.about-main-title {
+  font-family: 'Bazinga!', var(--font-comic), sans-serif;
+  font-size: 3rem;
+  color: var(--ink-black);
+  -webkit-text-stroke: 1.5px var(--bg-dark-orange);
+  text-shadow: 4px 4px 0px var(--bg-dark-orange);
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.about-body-paragraph {
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.75;
+  color: var(--ink-black);
+  text-align: justify;
+}
+
+.about-image-content {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.running-mascot-wrapper {
+  width: 100%;
+  max-width: 440px;
+}
+
+.running-mascot-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(4px 4px 0px var(--ink-black));
+}
+
+/* Custom styles for About section container background */
+.about-section {
+  position: relative;
+  background-color: var(--bg-light-orange);
+  border-bottom: var(--comic-border);
+  overflow: hidden;
+}
+
+/* Desktop layout matching Figma specifications for the About Page (1920x1080 design space) */
+@media (min-width: 900px) {
+  /* Make all sections fit the screen/viewport on desktop */
+  .about-section,
+  .how-it-works-section,
+  .tokenomics-section,
+  .roadmap-section,
+  .community-section,
+  .faq-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* Optimize section container padding on desktop to fit the viewport */
+  .about-section .section-container,
+  .how-it-works-section .section-container,
+  .tokenomics-section .section-container,
+  .roadmap-section .section-container,
+  .community-section .section-container,
+  .faq-section .section-container {
+    padding: 2.5rem 1.5rem;
+    width: 100%;
+  }
+
+  /* Make sure large media elements scale down to fit the viewport */
+  .retro-tv-image-wrapper {
+    max-height: 55vh;
+    width: auto;
+    aspect-ratio: 2508 / 1464;
+  }
+  .tv-casing-frame {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .figma-pie-img {
+    max-height: 55vh;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .roadmap-main-title {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-dumbbell-mascot-img {
+    max-height: 55vh;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .about-flex-layout {
+    position: relative;
+    max-width: 1600px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 80px;
+  }
+
+  .about-text-content {
+    flex: none;
+    width: 853px;
+  }
+
+  .about-main-title {
+    font-family: 'Bazinga!', var(--font-comic), sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 73px;
+    color: #E17036;
+    -webkit-text-stroke: 2px #000000;
+    text-shadow: 4px 4px 0px #000000;
+    margin-bottom: 2rem;
+  }
+
+  .about-section .balloon-left {
+    position: absolute;
+    width: 338.94px;
+    height: 398.25px;
+    left: -146.15px;
+    bottom: -100px;
+    top: auto;
+    transform: rotate(35deg);
+    z-index: 5;
+    animation: floatBalloonLeft 7s ease-in-out infinite alternate;
+  }
+
+  .about-section .balloon-right {
+    position: absolute;
+    width: 338.94px;
+    height: 398.25px;
+    right: -41.88px;
+    bottom: -100px;
+    top: auto;
+    transform: rotate(-39.77deg);
+    z-index: 5;
+    animation: floatBalloonRight 7s ease-in-out infinite alternate;
+  }
+
+  .about-section .mascot-about-bottom {
+    position: absolute;
+    width: 278px;
+    height: 253px;
+    left: calc(50% - 1920px/2 + 480px);
+    bottom: 30px;
+    top: auto;
+    transform: scaleX(-1);
+    z-index: 5;
+    animation: none;
+  }
+
+  .about-section .mascot-about-bottom img {
+    animation: floatMini 5s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes floatBalloonLeft {
+  0% { transform: rotate(35deg) translateY(0px); }
+  100% { transform: rotate(37deg) translateY(-20px); }
+}
+
+@keyframes floatBalloonRight {
+  0% { transform: rotate(-39.77deg) translateY(0px); }
+  100% { transform: rotate(-37.77deg) translateY(-20px); }
+}
+
+/* ==========================================================================
+   HOW IT WORKS SECTION
+   ========================================================================== */
+.how-it-works-section {
+  position: relative;
+  background-color: var(--bg-light-orange);
+  border-bottom: var(--comic-border);
+}
+.sleeping-mascot-decor {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 280px;
+  z-index: 5;
+  animation: breathe 3s ease-in-out infinite alternate;
+}
+
+.sleeping-mascot-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(4px 4px 0px var(--ink-black));
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.04); }
+}
+
+/* Vintage TV Slideshow widget with Figma PNG device case - enlarged for readability */
+.tv-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3.5rem auto;
+  max-width: 1200px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Image-based Arrow buttons styling */
+.tv-arrow-btn-img {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.tv-arrow-btn-img:hover {
+  transform: scale(1.1);
+}
+
+.tv-arrow-btn-img:active {
+  transform: scale(0.95);
+}
+
+.arrow-image-asset {
+  width: 80px;
+  height: 80px;
+  display: block;
+  filter: drop-shadow(3px 3px 0px var(--ink-black));
+}
+
+/* Retro TV PNG Container Frame */
+.retro-tv-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  aspect-ratio: 2508 / 1464;
+  container-type: inline-size;
+}
+
+.tv-casing-frame {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(8px 8px 0px var(--ink-black));
+}
+
+/* Screen overlay positioned absolute exactly inside transparent TV screen */
+.tv-screen-glass-overlay {
+  position: absolute;
+  top: 13.5%;
+  left: 14%;
+  width: 72%;
+  height: 70%;
+  background-color: #0E1210; /* screen tint */
+  border-radius: 12px;
+  padding: clamp(1rem, 5cqw, 3.5rem) clamp(1rem, 7cqw, 5rem) clamp(0.5rem, 3cqw, 2rem) clamp(1rem, 7cqw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+/* Scanlines CRT filter overlay */
+.tv-screen-glass-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+              linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.05));
+  z-index: 2;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Slide elements viewports */
+.tv-slides-viewport {
+  position: relative;
+  width: 100%;
+  flex: 1;
+}
+
+.tv-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 2.5cqw, 1.2rem);
+  z-index: 1;
+}
+
+.tv-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  z-index: 5;
+}
+
+.slide-header {
+  font-family: 'Bazinga!', var(--font-comic), sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 4.2cqw, 32px);
+  line-height: 42px;
+  text-align: center;
+  color: #E17036;
+  text-shadow: 0px 0px 8.1px rgba(225, 112, 54, 0.8);
+  white-space: nowrap;
+}
+
+.slide-body {
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 2.5cqw, 20px);
+  line-height: 150%;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* TV screen pagination */
+.tv-pagination {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 2cqw, 1.25rem);
+  margin-top: clamp(0.5rem, 2cqw, 1rem);
+  z-index: 5;
+}
+
+.tv-dot {
+  background-color: #F5DCD0;
+  color: #000000;
+  border: none;
+  font-family: var(--font-comic);
+  font-size: clamp(0.9rem, 2.5cqw, 1.4rem);
+  width: clamp(30px, 6cqw, 44px);
+  height: clamp(30px, 6cqw, 44px);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.tv-dot:hover {
+  transform: translateY(-2px);
+}
+
+.tv-dot.active {
+  background-color: var(--primary-orange);
+  color: #000000;
+  transform: scale(1.1);
+}
+
+.tokenomics-section, .community-section {
+  position: relative;
+  background-color: var(--bg-light-orange);
+  border-bottom: var(--comic-border);
+}
+
+.bicycle-mascot-left, .bicycle-mascot-right {
+  position: absolute;
+  bottom: -10px;
+  width: 370px;
+  z-index: 5;
+}
+
+.bicycle-mascot-left { left: 4%; }
+.bicycle-mascot-right { right: 4%; }
+
+.bicycle-mascot-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(4px 4px 0px var(--ink-black));
+}
+
+/* Flip BMX mascot horizontally on right (if needed) */
+.bicycle-mascot-img.flipped {
+  transform: scaleX(-1);
+}
+
+/* Figma Pie Chart layout style */
+.pie-chart-wrapper-figma {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto 3rem auto;
+  max-width: 628px;
+}
+
+.figma-pie-container {
+  width: 100%;
+}
+
+.figma-pie-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(8px 8px 0px var(--ink-black));
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.figma-pie-img:hover {
+  transform: scale(1.04);
+}
+
+
+/* ==========================================================================
+   ROADMAP SECTION
+   ========================================================================== */
+.roadmap-main-title {
+  font-family: var(--font-comic);
+  font-size: 3.8rem;
+  text-align: center;
+  color: var(--primary-orange);
+  -webkit-text-stroke: 2px var(--ink-black);
+  text-shadow: 4px 4px 0px var(--ink-black);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+
+
+/* Horizontal branching timeline from Figma */
+.figma-timeline-branch-wrapper {
+  max-width: 900px;
+  margin: 1rem auto 2rem auto;
+}
+
+.figma-timeline-branch-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 15px rgba(225, 112, 54, 0.4));
+}
+
+/* 6-Quarter panels grid (3x2 structure styled as a single integrated outline container) */
+.roadmap-panels-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 960px;
+  margin: 3rem auto 0 auto;
+  border: 2px solid var(--primary-orange);
+  border-radius: 16px;
+  background-color: transparent;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(225, 112, 54, 0.1);
+}
+
+.road-panel {
+  padding: 2rem 2.5rem;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+/* Vertical dividing line down the middle of the grid */
+.road-panel:nth-child(odd) {
+  border-right: 2px solid var(--primary-orange);
+}
+
+/* Horizontal dividing lines between the rows */
+.road-panel:nth-child(-n+4) {
+  border-bottom: 2px solid var(--primary-orange);
+}
+
+.panel-quarter {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--primary-orange);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.panel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-left: 1.2rem;
+}
+
+.panel-list li {
+  list-style-type: disc;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 1.5;
+}
+
+/* Side waving glowing mascots flanking the grid */
+.neon-mascot-decor {
+  position: absolute;
+  width: 240px;
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.neon-left {
+  left: calc(50% - 480px - 220px);
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+.neon-right {
+  right: calc(50% - 480px - 220px);
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+.neon-mascot-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(225, 112, 54, 0.4));
+}
+
+@media (max-width: 1300px) {
+  .neon-mascot-decor {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   COMMUNITY SECTION
+   ========================================================================== */
+.community-header-box {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+}
+
+/* Center Mascot layout */
+.community-interactive-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.comm-btn-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  flex: 1;
+}
+
+.col-left { align-items: flex-end; }
+.col-right { align-items: flex-start; }
+
+/* Pill Shaped buttons */
+.comm-pill-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+  border-radius: 40px;
+  width: 240px;
+  cursor: pointer;
+  background-color: var(--pure-white);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.comm-pill-btn:hover {
+  transform: scale(1.08) translate(-2px, -2px);
+  background-color: var(--off-white);
+}
+
+.svg-comm {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.comm-pill-text {
+  font-family: var(--font-comic);
+  font-size: 1.4rem;
+  color: var(--ink-black);
+}
+
+/* Central cool character */
+.comm-mascot-center {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cool-mascot-wrapper {
+  width: 100%;
+  max-width: 320px;
+  animation: floatMascot 5s ease-in-out infinite alternate;
+}
+
+.cool-mascot-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(5px 5px 0px var(--ink-black));
+}
+
+/* ==========================================================================
+   FAQ SECTION
+   ========================================================================== */
+.faq-section {
+  position: relative;
+  background-color: var(--bg-light-orange);
+  border-bottom: var(--comic-border);
+  overflow: hidden;
+}
+
+.faq-flex-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 6;
+}
+
+.faq-mascot-col {
+  flex: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq-dumbbell-mascot-img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(4px 4px 0px var(--ink-black));
+}
+
+.faq-content-col {
+  flex: 1.1;
+  max-width: 784px; /* Figma specification for FAQ Container width */
+  width: 100%;
+  position: relative;
+}
+
+.faq-main-title {
+  font-family: 'Bazinga!', var(--font-comic), sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 73px;
+  color: #E17036;
+  -webkit-text-stroke: 2px #000000;
+  text-shadow: 4px 4px 0px #000000;
+  margin-bottom: 40px; /* Figma gap between title and questions */
+  text-align: left;
+}
+
+.mascot-faq-right {
+  position: absolute;
+  top: -60px;
+  right: -30px;
+  width: 140px !important;
+  z-index: 10;
+}
+
+.faq-accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Figma gap between questions */
+}
+
+.faq-item {
+  background-color: #FFFFFF; /* Figma background */
+  border: 2px solid #000000; /* Comic border */
+  border-radius: 20px; /* Figma border-radius */
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 4px 4px 0px #000000; /* Comic shadow */
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Figma padding */
+  gap: 8px; /* Figma gap between header and answer */
+  box-sizing: border-box;
+}
+
+.faq-item:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  font-family: 'Bazinga!', var(--font-comic), sans-serif; /* Figma font */
+  font-size: 24px; /* Figma font-size */
+  line-height: 31px; /* Figma line-height */
+  color: #E17036; /* Figma color */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.faq-toggle-icon {
+  font-family: 'Bazinga!', var(--font-comic), sans-serif;
+  font-size: 24px; /* Figma font-size */
+  line-height: 31px;
+  color: #E17036; /* Figma color */
+  font-weight: normal;
+  display: inline-block;
+}
+
+.faq-toggle-icon::before {
+  content: "+";
+}
+
+.faq-item.active .faq-toggle-icon::before {
+  content: "−";
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #FFFFFF;
+}
+
+.faq-answer-inner {
+  padding: 0;
+  color: #000000; /* Figma color */
+  font-family: 'PT Sans', sans-serif; /* Figma font */
+  font-size: 20px; /* Figma font-size */
+  font-weight: 700; /* Figma font-weight */
+  line-height: 150%; /* Figma line-height */
+  padding-top: 4px;
+}
+
+/* Responsive FAQ section */
+@media (max-width: 900px) {
+  .faq-flex-layout {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .faq-mascot-col {
+    width: 100%;
+    order: 2;
+  }
+
+  .faq-content-col {
+    width: 100%;
+    order: 1;
+  }
+  
+  .faq-dumbbell-mascot-img {
+    max-width: 320px;
+  }
+  
+  .faq-main-title {
+    text-align: center;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mascot-faq-right {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .tvk-big-text {
+    font-size: 11rem;
+  }
+  .hero-mascot {
+    height: 180px;
+  }
+  .about-main-title {
+    font-size: 2.4rem;
+  }
+  .about-body-paragraph {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: var(--primary-orange);
+    border-top: var(--comic-border-thin);
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 3rem 0;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 1.5rem;
+  }
+
+  .header-actions {
+    display: none;
+  }
+
+  /* Section changes on Tablet */
+  .about-flex-layout {
+    flex-direction: column-reverse;
+    gap: 3rem;
+  }
+
+  .running-mascot-wrapper {
+    max-width: 320px;
+  }
+
+  .tv-slider-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .retro-tv-image-wrapper {
+    max-width: 100%;
+  }
+
+  .tv-screen-glass-overlay {
+    padding: 1.5rem;
+  }
+
+  .arrow-image-asset {
+    width: 55px;
+    height: 55px;
+  }
+
+  .pie-chart-wrapper-figma {
+    max-width: 380px;
+  }
+
+  .roadmap-panels-grid {
+    grid-template-columns: 1fr;
+    border: 2px solid var(--primary-orange);
+  }
+
+  .road-panel {
+    border-right: none !important;
+    border-bottom: 2px solid var(--primary-orange) !important;
+  }
+
+  .road-panel:last-child {
+    border-bottom: none !important;
+  }
+
+  .community-interactive-layout {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .comm-btn-col {
+    align-items: center !important;
+  }
+
+  .section-subtitle-alt {
+    font-size: 24px;
+  }
+
+  .sleeping-mascot-decor, .bicycle-mascot-left, .bicycle-mascot-right, .neon-mascot-decor, .balloon-decor-img {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  h2.section-title, .section-title-alt, .comm-title {
+    font-size: 2.2rem;
+  }
+
+  .tvk-big-text {
+    font-size: 7.5rem;
+  }
+
+  .hero-mascot {
+    height: 120px;
+    bottom: -15px;
+  }
+
+  .hero-subtitle {
+    font-size: 22px;
+  }
+
+  .section-subtitle-alt {
+    font-size: 20px;
+  }
+
+  .btn-buy-now {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+  }
+
+  .tv-screen-glass-overlay {
+    padding: 1rem 0.5rem;
+  }
+
+  .slide-header {
+    font-size: clamp(0.9rem, 4.5cqw, 1.15rem);
+    white-space: normal; /* Allow title wrapping on narrow mobile screens */
+    line-height: 1.3;
+  }
+
+  .slide-body {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .tv-dot {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+
+  .pie-chart-wrapper-figma {
+    max-width: 280px;
+  }
+}
+
+/* Ensure the TV slideshow layout fits and doesn't overflow on short viewports */
+@media (max-height: 850px) {
+  .slide-header {
+    font-size: clamp(1rem, 4cqw, 1.8rem);
+  }
+  .slide-body {
+    font-size: clamp(0.8rem, 2cqw, 16px);
+  }
+  .tv-dot {
+    width: clamp(26px, 5cqw, 36px);
+    height: clamp(26px, 5cqw, 36px);
+    font-size: clamp(0.8rem, 2cqw, 1.1rem);
+  }
+}
+@media (max-height: 700px) {
+  .slide-header {
+    font-size: clamp(0.9rem, 3.5cqw, 1.4rem);
+  }
+  .slide-body {
+    font-size: clamp(0.75rem, 1.8cqw, 14px);
+    line-height: 1.4;
+  }
+  .tv-dot {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+  .tv-pagination {
+    margin-top: 0.5rem;
+  }
+}
