@@ -637,6 +637,10 @@ a {
     object-fit: contain;
   }
 
+  .about-section .section-container {
+    max-width: 1600px;
+  }
+
   .about-flex-layout {
     position: relative;
     max-width: 1600px;
@@ -650,8 +654,14 @@ a {
   }
 
   .about-text-content {
-    flex: none;
-    width: 853px;
+    flex: 1 1 853px;
+    max-width: 853px;
+  }
+
+  .about-image-content {
+    flex: 1 1 602px;
+    max-width: 602px;
+    width: 100%;
   }
 
   .about-main-title {
